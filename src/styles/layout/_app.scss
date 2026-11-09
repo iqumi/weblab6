@@ -1,0 +1,36 @@
+@use '../utils' as *;
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+  max-width: $container-width;
+  margin-inline: auto;
+  padding: $space-5 $space-4 $space-6;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+
+    @include from-breakpoint {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    @include from-breakpoint {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+$themes: (
+  'light': (
+    'color-bg': #f3f4fa,
+    'color-surface': #ffffff,
+    'color-surface-muted': #eceefa,
+    'color-text': #1b1f33,
+    'color-text-muted': #4a5068,
+    'color-border': #7c84a3,
+    'color-border-subtle': #d9dcec,
+    'color-primary': #4338ca,
+    'color-primary-hover': #3730a3,
+    'color-on-primary': #ffffff,
+    'color-danger': #b42318,
+    'color-danger-hover': #fde8e6,
+    'color-focus': #0b57d0,
+    'color-backdrop': rgb(27 31 51 / 0.55),
+    'shadow-card': '0 1px 3px rgb(27 31 51 / 0.1)',
+    'shadow-modal': '0 20px 50px rgb(27 31 51 / 0.3)'
+  ),
+  'dark': (
+    'color-bg': #0f1220,
+    'color-surface': #181c30,
+    'color-surface-muted': #222742,
+    'color-text': #eceef9,
+    'color-text-muted': #b6bbd4,
+    'color-border': #7c84a8,
+    'color-border-subtle': #2f3556,
+    'color-primary': #a5a8ff,
+    'color-primary-hover': #bfc1ff,
+    'color-on-primary': #0f1220,
+    'color-danger': #ff9b93,
+    'color-danger-hover': #3a2024,
+    'color-focus': #8ab4ff,
+    'color-backdrop': rgb(0 0 0 / 0.65),
+    'shadow-card': '0 1px 3px rgb(0 0 0 / 0.4)',
+    'shadow-modal': '0 20px 50px rgb(0 0 0 / 0.6)'
+  )
+);
+
+@mixin define-theme($name) {
+  color-scheme: $name;
+
+  @each $token, $value in map.get($themes, $name) {
+    --#{$token}: #{$value};
+  }
+}
+
+:root,
+:root[data-theme='light'] {
+  @include define-theme('light');
+}
+
+:root[data-theme='dark'] {
+  @include define-theme('dark');
+}

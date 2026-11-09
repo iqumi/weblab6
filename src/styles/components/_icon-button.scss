@@ -1,0 +1,35 @@
+@use '../utils' as *;
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: $tap-size;
+  height: $tap-size;
+  border: 2px solid transparent;
+  border-radius: $radius-md;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+
+  @include transition(background-color);
+  @include focus-visible-ring;
+
+  &:hover {
+    background: var(--color-surface-muted);
+  }
+
+  &--bordered {
+    border-color: var(--color-border);
+    background: var(--color-surface);
+  }
+
+  &--danger {
+    color: var(--color-danger);
+
+    &:hover {
+      background: var(--color-danger-hover);
+    }
+  }
+}

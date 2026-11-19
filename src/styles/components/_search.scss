@@ -1,0 +1,20 @@
+@use '../utils' as *;
+
+.search {
+  position: relative;
+  flex: 1;
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: $space-4;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+    pointer-events: none;
+  }
+
+  &__input {
+    height: 100%;
+    padding-left: 2.75rem;
+  }
+}

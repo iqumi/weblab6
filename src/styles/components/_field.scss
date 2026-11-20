@@ -1,0 +1,26 @@
+@use '../utils' as *;
+
+.field {
+  width: 100%;
+  min-height: $tap-size;
+  padding: 0 $space-4;
+  border: 2px solid var(--color-border);
+  border-radius: $radius-md;
+  background: var(--color-surface);
+  color: var(--color-text);
+
+  &::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    border-color: var(--color-focus);
+
+    @include focus-ring;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: var(--color-danger);
+  }
+}
